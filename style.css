@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #222;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 250px;
+}
+
+h4 {
+    font-size: 30px;
+    color: #fff;
+}
+
+.dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: rotate(calc(360deg / 60 * var(--i))) translateX(200px);
+}
+
+.dot:nth-child(even)::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: #0f0;
+    border-radius: 50%;
+    animation: anime 6s ease-in-out infinite;
+    animation-delay: calc((var(--i) * 0.1s));
+}
+
+@keyframes anime {
+    0% {
+        transform: translate();
+    }
+    10% {
+        transform: translate(50px, 0);
+    }
+    20%,
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.dot:nth-child(odd)::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: #0f0;
+    border-radius: 50%;
+    animation: animeOdd 6s ease-in-out infinite;
+    animation-delay: calc((var(--i) * 0.1s));
+}
+
+@keyframes animeOdd {
+    0% {
+        transform: translate();
+    }
+    10% {
+        transform: translate(-50px, 0);
+    }
+    20%,
+    100% {
+        transform: translate(0, 0);
+    }
+}
